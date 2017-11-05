@@ -5,7 +5,7 @@
     <path d="m10 0 l30 0 l50 60 l-50 60 l-30 0 l50 -60"/>
   </mask>
   <g transform="translate(5,10)">
-    <path d="m130 0 l-30 0 l-50 60 l50 60 l30 0 l-50 -60" fill="#C78B6A" mask="url(#mask)"/>
+    <path d="m130 0 l-30 0 l-50 60 l50 60 l30 0 l-50 -60" fill="#E98846" mask="url(#mask)"/>
     <path d="m0 0 l30 0 l50 60 l-50 60 l-30 0 l50 -60" fill="#2E2E2C"/>
   </g>
 </svg>
