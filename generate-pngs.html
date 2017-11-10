@@ -37,6 +37,9 @@ This simple HTML page converts svgs to pngs by drawing them to a canvas which th
     'logo-full-inverse',
     'logo-full-inverse-bg'
   ].forEach(id => {
+    var canvas = document.querySelector('#' + id + '-canvas');
+    canvas.style.width = (canvas.width / window.devicePixelRatio) + 'px';
+    canvas.style.height = (canvas.height / window.devicePixelRatio) + 'px';
     document.querySelector('#' + id + '-button').addEventListener('click', () => {
       generateImage('#' + id);
     });
@@ -44,8 +47,6 @@ This simple HTML page converts svgs to pngs by drawing them to a canvas which th
 
   function generateImage(id) {
     var canvas = document.querySelector(id + '-canvas');
-    canvas.style.width = canvas.width + 'px';
-    canvas.style.height = canvas.height + 'px';
     var context = canvas.getContext('2d');
     context.drawImage(document.querySelector(id), 0, 0, canvas.width, canvas.height);
   }
