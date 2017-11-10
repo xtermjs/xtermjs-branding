@@ -2,13 +2,13 @@
 
 ## Logo/avatar
 
-![](./logo.svg)
-![](./logo-inverse-bg.svg)
+![](./logo.png)
+![](./logo-inverse-bg.png)
 
 ## Full logo
 
-![](./logo-full.svg) 
-![](./logo-full-inverse-bg.svg) 
+![](./logo-full.png) 
+![](./logo-full-inverse-bg.png) 
 
 ## Palette
 
