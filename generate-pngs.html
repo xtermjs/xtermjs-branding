@@ -3,6 +3,11 @@ This simple HTML page converts svgs to pngs by drawing them to a canvas which th
 1. Press the generate image button
 2. Right click on the newly drawn image and save or copy it
 
+Comments:
+
+- The generated images don't seem to come out that good on macOS
+- To generate an image of another size you need to change the width and height on both the canvas on this page and on the svg element in the file.
+
 <hr>
 <canvas id="logo-canvas" width="140" height="140"></canvas>
 <img id="logo" src="logo.svg"/>
@@ -37,6 +42,9 @@ This simple HTML page converts svgs to pngs by drawing them to a canvas which th
     'logo-full-inverse',
     'logo-full-inverse-bg'
   ].forEach(id => {
+    var canvas = document.querySelector('#' + id + '-canvas');
+    canvas.style.width = (canvas.width / window.devicePixelRatio) + 'px';
+    canvas.style.height = (canvas.height / window.devicePixelRatio) + 'px';
     document.querySelector('#' + id + '-button').addEventListener('click', () => {
       generateImage('#' + id);
     });
@@ -44,8 +52,6 @@ This simple HTML page converts svgs to pngs by drawing them to a canvas which th
 
   function generateImage(id) {
     var canvas = document.querySelector(id + '-canvas');
-    canvas.style.width = canvas.width + 'px';
-    canvas.style.height = canvas.height + 'px';
     var context = canvas.getContext('2d');
     context.drawImage(document.querySelector(id), 0, 0, canvas.width, canvas.height);
   }
