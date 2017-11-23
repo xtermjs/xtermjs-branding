@@ -7,7 +7,7 @@
   <g transform="translate(10,10)">
     <path d="m130 0 l-30 0 l-50 60 l50 60 l30 0 l-50 -60" fill="#5DA5D5" mask="url(#mask)"/>
     <path d="m0 0 l30 0 l50 60 l-50 60 l-30 0 l50 -60" fill="#2D2E2C"/>
-    <text x="120" y="66" font-family="Source Code Pro" font-size="75" alignment-baseline="middle" fill="#2D2E2C">term.js</text>
+    <text x="120" y="83" font-family="Source Code Pro" font-size="75" alignment-baseline="middle" fill="#2D2E2C">term.js</text>
     <path d="m440 20 l45 0 l0 80 l-45 0" fill="#2D2E2C"/>
   </g>
 </svg>
