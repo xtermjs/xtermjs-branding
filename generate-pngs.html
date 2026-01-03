@@ -12,26 +12,32 @@ Comments:
 <canvas id="logo-canvas" width="140" height="140"></canvas>
 <img id="logo" src="logo.svg"/>
 <button id="logo-button">Generate</button>
+<button id="logo-button-x2">Generate x2</button>
 <hr>
 <canvas id="logo-inverse-canvas" width="140" height="140"></canvas>
 <img id="logo-inverse" src="logo-inverse.svg"/>
 <button id="logo-inverse-button">Generate</button>
+<button id="logo-inverse-button-x2">Generate x2</button>
 <hr>
 <canvas id="logo-inverse-bg-canvas" width="140" height="140"></canvas>
 <img id="logo-inverse-bg" src="logo-inverse-bg.svg"/>
 <button id="logo-inverse-bg-button">Generate</button>
+<button id="logo-inverse-bg-button-x2">Generate x2</button>
 <hr>
 <canvas id="logo-full-canvas" width="505" height="140"></canvas>
 <img id="logo-full" src="logo-full.svg"/>
 <button id="logo-full-button">Generate</button>
+<button id="logo-full-button-x2">Generate x2</button>
 <hr>
 <canvas id="logo-full-inverse-canvas" width="505" height="140"></canvas>
 <img id="logo-full-inverse" src="logo-full-inverse.svg"/>
 <button id="logo-full-inverse-button">Generate</button>
+<button id="logo-full-inverse-button-x2">Generate x2</button>
 <hr>
 <canvas id="logo-full-inverse-bg-canvas" width="505" height="140"></canvas>
 <img id="logo-full-inverse-bg" src="logo-full-inverse-bg.svg"/>
 <button id="logo-full-inverse-bg-button">Generate</button>
+<button id="logo-full-inverse-bg-button-x2">Generate x2</button>
 
 <script>
   [
@@ -46,12 +52,23 @@ Comments:
     canvas.style.width = (canvas.width / window.devicePixelRatio) + 'px';
     canvas.style.height = (canvas.height / window.devicePixelRatio) + 'px';
     document.querySelector('#' + id + '-button').addEventListener('click', () => {
-      generateImage('#' + id);
+      generateImage('#' + id, 1);
+    });
+    document.querySelector('#' + id + '-button-x2').addEventListener('click', () => {
+      generateImage('#' + id, 2);
     });
   });
 
-  function generateImage(id) {
+  function generateImage(id, scale) {
     var canvas = document.querySelector(id + '-canvas');
+    var baseWidth = parseInt(canvas.getAttribute('data-base-width') || canvas.width);
+    var baseHeight = parseInt(canvas.getAttribute('data-base-height') || canvas.height);
+    canvas.setAttribute('data-base-width', baseWidth);
+    canvas.setAttribute('data-base-height', baseHeight);
+    canvas.width = baseWidth * scale;
+    canvas.height = baseHeight * scale;
+    canvas.style.width = (canvas.width / window.devicePixelRatio) + 'px';
+    canvas.style.height = (canvas.height / window.devicePixelRatio) + 'px';
     var context = canvas.getContext('2d');
     context.drawImage(document.querySelector(id), 0, 0, canvas.width, canvas.height);
   }
